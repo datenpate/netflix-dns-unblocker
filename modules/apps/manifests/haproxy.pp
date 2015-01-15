@@ -6,7 +6,7 @@ class apps::haproxy {
 	exec { 'add haproxy repo':
 		command => 'apt-add-repository ppa:vbernat/haproxy-1.5',
 		path => '/usr/bin:/usr/sbin:/bin:/usr/local/bin',
-		require => [Exec["apt-get update2"], Package["python-software-properties"]],
+		require => [Exec["apt-get update2"], Package["software-properties-common"]],
 	}
 
 	package { "haproxy" :
