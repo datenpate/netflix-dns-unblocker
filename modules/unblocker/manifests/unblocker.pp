@@ -22,7 +22,7 @@ class unblocker::unblocker {
 		command => 'php genconf.php pure-sni',
 		path => '/usr/bin',
 		cwd => '/root/tunlr-style-dns-unblocking',
-		require => [Package["php5"], Exec["set ip"], Exec["set password"]],
+		require => [Package["php5-cli"], Exec["set ip"], Exec["set password"]],
 	}
 
 	file { '/etc/haproxy/haproxy.conf':
