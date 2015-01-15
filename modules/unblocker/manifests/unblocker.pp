@@ -36,6 +36,6 @@ class unblocker::unblocker {
 		ensure      => running,
 		hasrestart => true,
 		hasstatus  => true,
-		require    => [Package["haproxy"], File["/etc/haproxy/haproxy.conf"]],
+		require    => [Package["haproxy"], File["/etc/haproxy/haproxy.cfg"]],
 	}
 }
