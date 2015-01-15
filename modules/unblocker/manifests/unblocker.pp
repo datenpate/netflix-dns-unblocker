@@ -37,13 +37,14 @@ class unblocker::unblocker {
 		ensure => present,
 		source => '/root/tunlr-style-dns-unblocking/haproxy.conf',
 		require => Exec["create config"],
+		notify => Service["haproxy"],
 	}
 
 	service { 'haproxy':
-		enable      => true,
-		ensure      => running,
+		enable => true,
+		ensure => running,
 		hasrestart => true,
-		hasstatus  => true,
-		require    => [Package["haproxy"], File["/etc/haproxy/haproxy.cfg"]],
+		hasstatus => true,
+		require => [Package["haproxy"]],
 	}
 }
