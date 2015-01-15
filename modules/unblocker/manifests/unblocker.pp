@@ -7,13 +7,13 @@ class unblocker::unblocker {
 	}
 
 	exec { 'set ip':
-		command      => 'sed -i /root/tunlr-style-dns-unblocking/config.json -e 's/199.233.245.62/${ipaddress}/'',
+		command      => "sed -i /root/tunlr-style-dns-unblocking/config.json -e 's/199.233.245.62/${ipaddress}/'",
 		path        => '/bin',
 		require    => Exec["clone unblocker"],
 	}
 
 	exec { 'set password':
-		command      => 'sed -i /root/tunlr-style-dns-unblocking/config.json -e 's/Change-Me-Now/$facts['PASSWORD']/'',
+		command      => "sed -i /root/tunlr-style-dns-unblocking/config.json -e 's/Change-Me-Now/$facts['PASSWORD']/'",
 		path        => '/bin',
 		require    => Exec["clone unblocker"],
 	}

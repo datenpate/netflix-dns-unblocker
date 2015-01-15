@@ -4,7 +4,7 @@ class apps::haproxy {
 	}
 
 	exec { 'enable haproxy':
-		command      => 'sed -i /etc/default/haproxy -e 's/ENABLED=0/ENABLED=1/'',
+		command      => "sed -i /etc/default/haproxy -e 's/ENABLED=0/ENABLED=1/'",
 		path        => '/bin',
 		require    => Package["haproxy"],
 	}
