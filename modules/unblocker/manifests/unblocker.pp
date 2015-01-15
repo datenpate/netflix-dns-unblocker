@@ -28,7 +28,7 @@ class unblocker::unblocker {
 	file { '/etc/haproxy/haproxy.conf':
 		ensure => present,
 		source => '/root/tunlr-style-dns-unblocking/haproxy.conf',
-		require => Exec["set ip"],
+		require => Exec["create config"],
 	}
 
 	service { 'haproxy':
