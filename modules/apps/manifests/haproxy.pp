@@ -1,7 +1,7 @@
 class apps::haproxy {
 	package { "haproxy" :
 		ensure => installed,
-		require => Class["base::apt-get-update"]
+		require => [Class["base::apt-get-update"], Exec["configure locale"]],
 	}
 
 	exec { 'enable haproxy':
