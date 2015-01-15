@@ -13,7 +13,7 @@ class unblocker::unblocker {
 	}
 
 	exec { 'set password':
-		command      => "sed -i /root/tunlr-style-dns-unblocking/config.json -e 's/Change-Me-Now/${PASSWORD}/'",
+		command      => "sed -i /root/tunlr-style-dns-unblocking/config.json -e 's/Change-Me-Now/${monitor_password}/'",
 		path        => '/bin',
 		require    => Exec["clone unblocker"],
 	}
