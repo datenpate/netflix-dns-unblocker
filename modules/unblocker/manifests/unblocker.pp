@@ -1,9 +1,17 @@
 class unblocker::unblocker {
+	file { 'remove old repo':
+	    ensure => absent,
+	    path => '/root/tunlr-style-dns-unblocking/',
+	    recurse => true,
+	    purge => true,
+	    force => true,
+	}
+
 	exec { 'clone unblocker':
 		command => 'git clone https://github.com/datenpate/tunlr-style-dns-unblocking.git',
 		path => '/usr/bin',
 		cwd => '/root',
-		require => [Package["git"], Class["base::cleanup"], Class["base::misc"]],
+		require => [File["remove old repo"], Package["git"], Class["base::cleanup"], Class["base::misc"]],
 	}
 
 	exec { 'set ip':
