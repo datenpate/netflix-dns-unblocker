@@ -1,14 +1,14 @@
 # howto
 # cd /root
-# git clone ...
-# install puppet
+# git clone https://github.com/datenpate/netflix-dns-unblocker.git
+# apt-get install puppet
 # FACTER_PASSWORD=secret
-# sudo puppet apply --modulepath ./modules manifests/site.pp
+# sudo puppet apply --modulepath /root/netflix-dns-unblocker/modules /root/netflix-dns-unblocker/init.pp
 
 node default {
 	include base::apt-get-update
 
-	include base:cleanup
+	include base::cleanup
 
 	include base::git
 	include base::misc
