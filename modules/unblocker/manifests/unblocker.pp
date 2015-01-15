@@ -25,7 +25,7 @@ class unblocker::unblocker {
 		require => [Package["php5-cli"], Exec["set ip"], Exec["set password"]],
 	}
 
-	file { '/etc/haproxy/haproxy.conf':
+	file { '/etc/haproxy/haproxy.cfg':
 		ensure => present,
 		source => '/root/tunlr-style-dns-unblocking/haproxy.conf',
 		require => Exec["create config"],
